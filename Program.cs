@@ -61,6 +61,10 @@ static class Program
                 }
             }
             Clipboard.SetDataObject(newData);
+
+            trayIconManager.ShowBalloonTip(
+                System.Reflection.Assembly.GetExecutingAssembly().GetName().Name,
+                "画像を削除しました！");
         };
 
         Application.Run();
