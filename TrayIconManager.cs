@@ -20,7 +20,9 @@ public class TrayIconManager
         notifyIcon.Visible = true;
     }
 
-    public void ShowBalloonTip(string tipTitle, string tipText, ToolTipIcon tipIcon = ToolTipIcon.Info) {
+    public void ShowBalloonTip(string? tipTitle, string? tipText, ToolTipIcon tipIcon = ToolTipIcon.Info) {
+        tipTitle = tipTitle ?? "";
+        tipText = tipText ?? "";
         notifyIcon.ShowBalloonTip(1, tipTitle, tipText, tipIcon);
     }
 }
