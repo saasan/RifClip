@@ -7,23 +7,13 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>RifClip.ico</ApplicationIcon>
+    <DebugType Condition="'$(Configuration)' == 'Release'">none</DebugType>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>false</SelfContained>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <Version>1.0.1</Version>
+    <Copyright>© s2works.</Copyright>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Properties\**" />
-    <Compile Remove="Resources\**" />
-    <EmbeddedResource Remove="Properties\**" />
-    <EmbeddedResource Remove="Resources\**" />
-    <None Remove="Properties\**" />
-    <None Remove="Resources\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="RifClip.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="NLog" Version="5.2.8" />
-  </ItemGroup>
 
 </Project>
