@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 
+[System.ComponentModel.DesignerCategory("Code")]
 public class ClipboardListener : Form
 {
     private const int WM_CLIPBOARDUPDATE = 0x031D;
