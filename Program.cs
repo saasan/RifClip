@@ -1,5 +1,3 @@
-using NLog;
-
 namespace RifClip;
 
 static class Program
@@ -19,7 +17,6 @@ static class Program
         "Rich Text Format",
         "Richtext Format"
     };
-    private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
     private const string MutexName = "RifClipMutex";
 
     [STAThread]
@@ -31,11 +28,6 @@ static class Program
             // 既に起動中の場合、アプリケーションを終了
             return;
         }
-
-        LogManager.Setup().LoadConfiguration(builder => {
-            builder.ForLogger().FilterMinLevel(LogLevel.Debug).WriteToConsole();
-            builder.ForLogger().FilterMinLevel(LogLevel.Error).WriteToFile(fileName: "log.txt");
-        });
 
         ApplicationConfiguration.Initialize();
 
