@@ -2,20 +2,11 @@ namespace RifClip;
 
 static class Program
 {
-    // 再コピーするクリップボードのフォーマット
-    private static readonly string[] CopyClipboardFormats = {
-        "Star Embed Source (XML)",
-        "Star Object Descriptor (XML)",
-        "HTML (HyperText Markup Language)",
-        "HTML Format",
-        "SymbolicLink",
-        "Link",
-        "DataInterchangeFormat",
-        "System.String",
-        "UnicodeText",
-        "Text",
-        "Rich Text Format",
-        "Richtext Format"
+    // 削除するクリップボードのフォーマット
+    private static readonly string[] RemoveClipboardFormats = {
+        "Bitmap",
+        "DeviceIndependentBitmap",
+        "System.Drawing.Bitmap"
     };
     private const string MutexName = "RifClipMutex";
 
@@ -47,7 +38,7 @@ static class Program
                 foreach (string format in data.GetFormats())
                 {
                     Logger.Info(format);
-                    if (CopyClipboardFormats.Contains(format)) {
+                    if (!RemoveClipboardFormats.Contains(format)) {
                         newData.SetData(format, data.GetData(format));
                     }
                 }
