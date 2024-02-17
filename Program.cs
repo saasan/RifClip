@@ -22,8 +22,10 @@ static class Program
 
         ApplicationConfiguration.Initialize();
 
-        TrayIconManager trayIconManager = new();
-        trayIconManager.Initialize();
+        Settings settings = Settings.Instance;
+        Application.ApplicationExit += (_, _) => settings.Save();
+
+        TrayIconManager trayIconManager = new(settings);
 
         using ClipboardListener clipboardListener = new();
         clipboardListener.ClipboardUpdate += (sender, e) =>
@@ -38,16 +40,19 @@ static class Program
                 foreach (string format in data.GetFormats())
                 {
                     Logger.Info(format);
-                    if (!RemoveClipboardFormats.Contains(format)) {
+                    if (!RemoveClipboardFormats.Contains(format))
+                    {
                         newData.SetData(format, data.GetData(format));
                     }
                 }
             }
             Clipboard.SetDataObject(newData);
 
-            trayIconManager.ShowBalloonTip(
-                System.Reflection.Assembly.GetExecutingAssembly().GetName().Name,
-                "画像を削除しました！");
+            if (settings.NotifyOnRemoveImage) {
+                trayIconManager.ShowBalloonTip(
+                    System.Reflection.Assembly.GetExecutingAssembly().GetName().Name,
+                    "画像を削除しました！");
+            }
         };
 
         Application.Run();
