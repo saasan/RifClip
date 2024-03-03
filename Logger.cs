@@ -4,7 +4,8 @@ public class Logger
 
     public static void Info(in string message)
     {
-        string[] contents = { DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + " INFO: " + message };
-        File.AppendAllLines(path, contents);
+        string content = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + " INFO: " + message;
+        System.Diagnostics.Debug.Print(content);
+        File.AppendAllText(path, content + Environment.NewLine);
     }
 }

@@ -45,7 +45,9 @@ static class Program
             {
                 foreach (string format in data.GetFormats())
                 {
+#if DEBUG
                     Logger.Info(format);
+#endif
                     if (!RemoveClipboardFormats.Contains(format))
                     {
                         newData.SetData(format, data.GetData(format));

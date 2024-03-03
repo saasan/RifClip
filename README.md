@@ -1,4 +1,27 @@
 # RifClip
 
-クリップボードを監視し、テキストと画像の両方が含まれている場合は画像を削除
-Monitor the clipboard and remove image if it contains both text and image
+クリップボードを監視し、テキストと画像の両方が含まれている場合に画像を削除
+
+## 動作環境
+
+Windows 10 / 11 + .NET デスクトップ ランタイム 6.0
+
+## インストール
+
+[GitHub](https://github.com/saasan/RifClip/releases) から .exe ファイルをダウンロードします。
+
+## 使い方
+
+起動するとタスクバーの通知領域にアイコンが表示されます。
+
+起動している間に Microsoft Excel や LibreOffice Calc でセルがコピーされると画像を削除します。
+
+終了する場合は、通知領域のアイコンを右クリックし `終了` をクリックします。
+
+## 設定
+
+通知領域のアイコンを右クリックすると、以下が設定できます。
+
+### 画像を削除時に通知する
+
+画像を削除時に通知します。
