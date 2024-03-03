@@ -12,7 +12,7 @@
     <SelfContained>false</SelfContained>
     <PublishReadyToRun>true</PublishReadyToRun>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Copyright>© s2works.</Copyright>
   </PropertyGroup>
 
