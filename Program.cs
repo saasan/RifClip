@@ -23,12 +23,18 @@ static class Program
         ApplicationConfiguration.Initialize();
 
         Settings settings = Settings.Instance;
-        Application.ApplicationExit += (_, _) => settings.Save();
+        settings.PropertyChanged += (_, _) => settings.Save();
 
         TrayIconManager trayIconManager = new(settings);
 
         using ClipboardListener clipboardListener = new();
-        clipboardListener.ClipboardUpdate += (sender, e) =>
+        clipboardListener.ClipboardUpdate += CipboardUpdate(settings, trayIconManager);
+
+        Application.Run();
+    }
+
+    private static EventHandler CipboardUpdate(Settings settings, TrayIconManager trayIconManager) {
+        return (sender, e) =>
         {
             if (!Clipboard.ContainsImage() || !Clipboard.ContainsText()) return;
 
@@ -49,12 +55,9 @@ static class Program
             Clipboard.SetDataObject(newData);
 
             if (settings.NotifyOnRemoveImage) {
-                trayIconManager.ShowBalloonTip(
-                    System.Reflection.Assembly.GetExecutingAssembly().GetName().Name,
-                    "画像を削除しました！");
+                string? appName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+                trayIconManager.ShowBalloonTip(appName, "画像を削除しました！");
             }
         };
-
-        Application.Run();
     }
 }
