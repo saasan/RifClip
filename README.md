@@ -8,7 +8,7 @@ Windows 10 / 11 + .NET デスクトップ ランタイム 6.0
 
 ## インストール
 
-[GitHub](https://github.com/saasan/RifClip/releases) から
+GitHub の [Releases](https://github.com/saasan/RifClip/releases) から
 RifClip.exe をダウンロードします。
 
 ## 使い方
