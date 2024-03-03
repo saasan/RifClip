@@ -8,13 +8,15 @@ Windows 10 / 11 + .NET デスクトップ ランタイム 6.0
 
 ## インストール
 
-[GitHub](https://github.com/saasan/RifClip/releases) から .exe ファイルをダウンロードします。
+[GitHub](https://github.com/saasan/RifClip/releases) から
+RifClip.exe をダウンロードします。
 
 ## 使い方
 
 起動するとタスクバーの通知領域にアイコンが表示されます。
 
-起動している間に Microsoft Excel や LibreOffice Calc でセルがコピーされると画像を削除します。
+起動している間に Microsoft Excel や LibreOffice Calc
+でセルがコピーされると、クリップボードから画像を削除します。
 
 終了する場合は、通知領域のアイコンを右クリックし `終了` をクリックします。
 
